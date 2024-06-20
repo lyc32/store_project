@@ -1,12 +1,12 @@
 <?php   
-   $connection = new mysqli("127.0.0.1", "root", "", "project");
+   $connection = new mysqli("127.0.0.1", "root", "qwer1234", "project");
    if($connection->connect_error)
    {
       echo("connect DB ERROR");
    }
    else 
    {
-      $result = $connection -> query("SELECT * FROM Category WHERE state ='active'");
+      $result = $connection -> query("SELECT * FROM CATEGORY");
       echo("get result");
       //while ($row = $result->fetch_assoc())
       //{
