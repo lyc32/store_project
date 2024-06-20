@@ -54,9 +54,21 @@ function getHtml(path)
 		{
 			updatePage(data);
 		},
-		error: function(error) 
+		error: function (XMLHttpRequest, textStatus, errorThrown) 
 		{
-			updatePage("<h1 class=\"text-white\">" + error + "</h1>");
+
+			// 状态码
+
+			console.log(XMLHttpRequest.status);
+
+			// 状态
+
+			console.log(XMLHttpRequest.readyState);
+
+			// 错误信息
+
+			console.log(textStatus);
+
 		}
 	})
 }
