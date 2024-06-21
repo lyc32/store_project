@@ -9,24 +9,42 @@
       function __construct()
       {
          $sqlConfig = new SqlConfig();
-         $this->connection = new mysqli($sqlConfig->host, $sqlConfig->user, $sqlConfig->pass, $sqlConfig->db);
-         
-         if ($this->connection->connect_error) 
+         try 
          {
-            die("<p class='title text-white'>Unable To Connect DataBase!<br>Connection failed: " . $conn->connect_error . "</p>");
+             $this->connection = new PDO("mysql:host=".$sqlConfig->host.";dbname=".$sqlConfig->db."" , $sqlConfig->user, $sqlConfig->pass);
+         
+         }
+         catch(PDOException $e)
+         {
+            $this->connection = null;
+            echo("<p class='title text-white'>PDO Unable To Connect DataBase!<br>" . $e . "</p>");
          }
       }
       
       function getAllCategory()
       {
-         $result = $this->connection->query("SELECT * FROM category WHERE state ='active'");
-         $arr = array();
-         while ($row = $result->fetch_assoc())
+         if($this->connection == null)
          {
-            $category = new Category($row['id'], $row['category_name'], $row['link'], $row['state']);
-            array_push($arr, $category);
+            return null;
          }
-         return $arr;
+         else 
+         {
+            try 
+            {
+               $result = $this->connection->query("SELECT * FROM category WHERE state ='active'");
+               $arr = array();
+               while ($row = $result->fetch())
+               {
+                  $category = new Category($row['id'], $row['category_name'], $row['link'], $row['state']);
+                  array_push($arr, $category);
+               }
+               return $arr;
+            }
+            catch(PDOException $e)
+            {
+               echo("<p class='title text-white'>PDO ERROR:<br>" . $e . "</p>");
+            }
+         }
       }
       
       function updateCategory()
