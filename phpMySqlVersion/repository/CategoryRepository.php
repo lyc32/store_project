@@ -19,7 +19,7 @@
       
       function getAllCategory()
       {
-         $result = $this->connection->query("SELECT * FROM Category WHERE state ='active'");
+         $result = $this->connection->query("SELECT * FROM category WHERE state ='active'");
          $arr = array();
          while ($row = $result->fetch_assoc())
          {
