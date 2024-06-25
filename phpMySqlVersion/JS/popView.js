@@ -12,7 +12,7 @@ function prePop(message)
 function setPop(message, reload) 
 {
 	document.getElementById("responseMessage").innerHTML = message;
-	if(goHome == true)
+	if(reload == true)
 	{
 		let i = 3;
 		self.setInterval(() => 
