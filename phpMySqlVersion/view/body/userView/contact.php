@@ -24,32 +24,38 @@
 					</span>
 					<span class="mt-3"><?php echo($phone)?></span>
 				</div>
-				<form>
-					<div class="row mt-4">
-						<div class="col-sm-6">
-							First Name
-							<input id='qty' class="form-control text-secondary" type="text" value="">
-						</div>
-						<div class="col-sm-6">
-							Last Name
-							<input id='qty' class="form-control text-secondary" type="text" value="">
-						</div>
+				<div class="row mt-4">
+					<div class="col-sm-6">
+						First Name
+						<input id='firstName' class="form-control text-secondary inputFont" type="text" value="">
 					</div>
-					
-					<div class="row article mt-3">
-						<div class="col-sm-10">
-							Email*
-							<input id='qty' class="form-control text-secondary" type="text" value="">
-						</div>
+					<div class="col-sm-6">
+						Last Name
+						<input id='lastName' class="form-control text-secondary inputFont" type="text" value="">
 					</div>
-					
-					<div class="row mt-3">
-						<div class="col-sm-12">
-							Write a message
-							<textarea class= "form-control" rows="5"></textarea>
-						</div>
+				</div>
+				
+				<div class="row article mt-3">
+					<div class="col-sm-10">
+						Email*
+						<input id='email' class="form-control text-secondary inputFont" type="text" value="">
 					</div>
-				</form>
+				</div>
+				
+				<div class="row mt-3">
+					<div class="col-sm-12">
+						Message*
+						<textarea class= "form-control inputFont" id="message" rows="3"></textarea>
+					</div>
+				</div>
+				<div class="row mt-3" >
+					<div class="col-sm-9" id="errorMessage">
+						
+					</div>
+					<div class="col-sm-3">
+						<button class="btn btn-lg btn-outline-light article py-0 px-3" onclick="sendMessage()">submit</button>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

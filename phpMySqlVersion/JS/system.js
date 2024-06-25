@@ -28,27 +28,22 @@ function toLogin()
 	getHtml("login")
 }
 
-function login()
+function goDashboard()
 {
-	console.log("this is login method");
-	userName = document.getElementById("username").value;
-	password = document.getElementById("password").value;
-	console.log(password);
-	console.log(md5(password));
-}
-
-function reset()
-{
-	document.getElementById("username").value = "";
-	document.getElementById("password").value = "";
+	getHtml("dashboard");
 }
 
 
 function getHtml(path) 
 {
+	let url = './controller/userController.php';
+	if(path != undefined || path != null || path != '')
+	{
+		url = url + "?path="+ path;
+	}
 	$.ajax(
 	{
-		url: "./controller/userController.php?path="+ path, // 后端接口URL
+		url: url,
 		method: "GET",
 		success: function(data) 
 		{
@@ -63,5 +58,12 @@ function getHtml(path)
 
 function updatePage(data) 
 {
-	document.getElementById("mainPage").innerHTML = data
+	document.getElementById("mainPage").innerHTML = data;
 }
+
+function closePop()
+{
+	document.getElementById("messageDialog").className = "modal_close";
+}
+
+

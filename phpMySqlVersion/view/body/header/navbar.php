@@ -10,6 +10,16 @@
       </button> 
      <div class="collapse navbar-collapse" id="navbarNavDropdown"> 
       <ul class="navbar-nav text-center "> 
+<?php
+      if (isset($_SESSION['role']))
+      {
+?>
+        <li class="nav-item"> 
+          <a class="nav-link text-white menu" onclick="goDashboard()">Dashboard</a>
+        </li> 
+<?php
+      }
+?>      
         <li class="nav-item"> 
           <a class="nav-link text-white menu" onclick="goProduct()">Products</a>
         </li> 
@@ -23,6 +33,10 @@
     </div>
     <div class="collapse navbar-collapse justify-content-end me-5" id="navbarNavDropdown"> 
       <ul class="navbar-nav text-center me-0"> 
+<?php
+    if (!isset($_SESSION['username']))
+    {
+?>
         <li class="nav-item"> 
           <a class="nav-link text-white menu" onclick="toLogin()">
             <svg width="1.8rem" height="1.8rem" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 20 20">
@@ -32,6 +46,23 @@
           Login
           </a>
         </li> 
+<?php
+    }
+    else
+    {
+?>
+       <li class="nav-item"> 
+        <a class="nav-link text-white menu" onclick="logout()">
+          <svg width="1.8rem" height="1.8rem" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 20 20">
+            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+          </svg>
+          <?php echo($_SESSION['username'])?>
+        </a>
+      </li> 
+<?php      
+    }
+?> 
       </ul>
     </div>
 </nav>

@@ -1,7 +1,7 @@
 <div class="container mt-5">
 	<div class="row justify-content-center">
 		<div class="row justify-content-center pt-4" >
-			<div class="col-sm-4 text-white article">
+			<div class="col-sm-4">
 				<div class="card loginCard text-white article" data-aos="fade-down" data-aos-duration="1500" data-aos-easing="linear">
 					<div class="row justify-content-center">
 						<img class="loginLogo" src = './static/logo.ico'>
@@ -24,7 +24,7 @@
 							<button class="btn btn-lg btn-outline-light article py-0 px-5" onclick="login()">Login</button>
 						</div>
 						<div class="col-sm-5 text-start">
-							<button class="btn btn-lg btn-outline-light article py-0 px-5" onclick="reset()">Reset</button>
+							<button class="btn btn-lg btn-outline-light article py-0 px-5" onclick="resetLoginView()">Reset</button>
 						</div>
 					</div>
 				</div>

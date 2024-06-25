@@ -1,33 +1,41 @@
 <?php
 	require '../config/TextConfig.php';
 
-	if(empty($_GET) || $_GET['path'] == 'home')
+	if(empty($_GET))
 	{
-		require '../view/home.php';
+		return "<div class='title text-white'>404 Not Found</html>";
+	}
+	else if( $_GET['path'] == 'home')
+	{
+		require '../view/body/userView/home.php';
 	}
 	else if($_GET['path'] == 'product')
 	{
-		require '../view/product.php';
+		require '../view/body/userView/product.php';
 	}
 	else if($_GET['path'] == 'about')
 	{
-		require '../view/about.php';
+		require '../view/body/userView/about.php';
 	}
 	else if($_GET['path'] == 'contact')
 	{
-		require '../view/contact.php';
+		require '../view/body/userView/contact.php';
 	}
 	else if($_GET['path'] == 'chat')
 	{
-		require '../view/chat.php';
+		require '../view/body/userView/chat.php';
 	}
 	else if($_GET['path'] == 'login')
 	{
-		require '../view/login.php';
+		require '../view/body/userView/login.php';
+	}
+	else if( $_GET['path'] == 'dashboard')
+	{
+		require '../view/body/adminView/dashboard.php';
 	}
 	else 
 	{
-		return "<div class='title text-white'>ERROR</html>";
+		return "<div class='title text-white'>404 Not Found</html>";
 	}
 ?>	
 
